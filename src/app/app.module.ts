@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { AppRoutingModule } from './app-routing.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { NaoEncontradoComponent } from './nao-encontrado/nao-encontrado.component';
@@ -24,6 +25,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatSnackBarModule,    
     FormsModule
+  ],
+  providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy}
   ],  
   bootstrap: [AppComponent]
 })
